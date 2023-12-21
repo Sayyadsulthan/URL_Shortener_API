@@ -13,6 +13,8 @@ const App = express();
 const PORT = process.env.PORT || 8000;
 
 App.use(express.json());
+// used for form submission x-www-form-urlencoded
+App.use(express.urlencoded({ extended: true }));
 
 App.use("/shorten", shortnerRoutes);
 App.use("/user", userRoutes);
