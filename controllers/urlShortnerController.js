@@ -19,13 +19,11 @@ export const handleGenerateShortenUrl = async (req, res) => {
       originalUrl: url,
     });
 
-    res
-      .status(200)
-      .json({
-        originalUrl: data.originalUrl,
-        shortUrl: data.shortUrlId,
-        totalClicks: data.totalClicks,
-      });
+    res.status(200).json({
+      originalUrl: data.originalUrl,
+      shortUrl: data.shortUrlId,
+      totalClicks: data.totalClicks,
+    });
   } catch (error) {
     return res.status(404).json({ message: error.message });
   }
@@ -44,6 +42,8 @@ export const handleGetOriginalUrl = async (req, res) => {
     const data = await ShortUrl.findOne({
       shortUrlId: shortId,
     });
+
+    if (!data) return res.status(404).json({ message: "Url not found" });
 
     data.totalClicks++;
     data.save();

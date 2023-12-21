@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 configDotenv();
 
 import DB from "./config/mongoose.js";
+import ShortUrl from "./models/shortUrl.js";
+import User from "./models/User.js";
 import shortnerRoutes from "./routes/urlShortenRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import passport from "passport";
