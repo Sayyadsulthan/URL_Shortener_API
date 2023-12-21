@@ -21,7 +21,11 @@ export const handleGenerateShortenUrl = async (req, res) => {
 
     res
       .status(200)
-      .json({ originalUrl: data.originalUrl, shortUrl: data.shortUrlId });
+      .json({
+        originalUrl: data.originalUrl,
+        shortUrl: data.shortUrlId,
+        totalClicks: data.totalClicks,
+      });
   } catch (error) {
     return res.status(404).json({ message: error.message });
   }
@@ -41,6 +45,8 @@ export const handleGetOriginalUrl = async (req, res) => {
       shortUrlId: shortId,
     });
 
+    data.totalClicks++;
+    data.save();
     // redirecting the user to the original page
     res.redirect(data.originalUrl);
   } catch (error) {
