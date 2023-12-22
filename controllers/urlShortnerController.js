@@ -1,5 +1,5 @@
 import ShortUniqueId from "short-unique-id";
-import ShortUrl from "../models/shortUrl.js";
+import ShortUrl from "../models/ShortUrl.js";
 
 export const handleGenerateShortenUrl = async (req, res) => {
   try {
