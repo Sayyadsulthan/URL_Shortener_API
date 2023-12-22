@@ -1,5 +1,8 @@
 # URL Shortener API
 
+# Hosted Url: 
+https://urlshortener-8wtd.onrender.com/
+ 
 <!-- First user need to Follow the Registration process  -->
  
 
